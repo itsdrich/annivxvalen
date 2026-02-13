@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💚 Happy Annivesary Babu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="floating-hearts"></div>
+    <div class="particle-container"></div>
+
+    <!-- Progress Indicator -->
+    <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- Page 1: Welcome -->
+    <section id="page1" class="page active">
+        <div class="glass-card main-card">
+            <div class="sparkle-effect"></div>
+            <span class="badge pulse">Anniversary X Valentines</span>
+            <h1 class="elegant-text">Happy Anniversary & Valentines Day Babu</h1>
+            <p class="subtitle">This is just my little present. <br> I hope you'll like it Mahal. <br> Here's your flower &gt;_&lt;</p>
+            <div> <img src="/pic/leaf2.png" width="300px"> </div>
+            <button class="big-btn" onclick="nextPage(2)">
+                <span>Our Memories</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Page 2: Photo Memories -->
+    <section id="page2" class="page">
+        <div class="container">
+            <h2 class="title">
+                <span class="title-icon"></span>
+                ⋆.* Our First Memories ࿔*:
+            </h2>
+            <p class="subtitle">Click each photo to unlock!</p>
+            <div class="photo-progress">
+                <span id="photoCount">0</span>/3 memories viewed
+            </div>
+            <div class="photo-wall">
+                <div class="photo-item clickable-photo" style="--d: 0s; --r: -5deg;" onclick="viewPhoto(this)">
+                    <div class="polaroid">
+                        <img src="/pic/first.jpg" alt="Memory">
+                        <div class="photo-caption">Eto yung patay na patay ka pa sakin... 💚</div>
+                        <div class="photo-overlay">Click to view</div>
+                    </div>
+                </div>
+                <div class="photo-item clickable-photo" style="--d: 0.3s; --r: 3deg;" onclick="viewPhoto(this)">
+                    <div class="polaroid">
+                        <img src="/pic/cine.jpg" alt="Memory">
+                        <div class="photo-caption">Dito tayo naging si Elphabet at Glinders 🌿</div>
+                        <div class="photo-overlay">Click to view</div>
+                    </div>
+                </div>
+                <div class="photo-item clickable-photo" style="--d: 0.6s; --r: -3deg;" onclick="viewPhoto(this)">
+                    <div class="polaroid">
+                        <img src="/pic/date.jpg" alt="Memory">
+                        <div class="photo-caption">First fine dining restaurant natin together wowtch! 🍵</div>
+                        <div class="photo-overlay">Click to view</div>
+                    </div>
+                </div>
+            </div>
+            <button class="big-btn hidden" id="photoNextBtn" onclick="nextPage(3)">
+                <span>Next Chapter</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Page 3: Memory Game -->
+    <section id="page3" class="page">
+        <div class="glass-card game-card">
+            <h2>
+                <span class="title-icon"></span>
+                ༄˖°. Memory Match .⋆｡˚
+            </h2>
+            <p class="game-subtitle">Match the pairs to unlock our highlights!</p>
+            <div class="game-stats">
+                <div class="stat">
+                    <span class="stat-label">Moves</span>
+                    <span class="stat-value" id="moveCount">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Matched</span>
+                    <span class="stat-value" id="matchCount">0/4</span>
+                </div>
+            </div>
+            <div id="memory-game" class="memory-grid"></div>
+            <div id="gameSuccess" class="game-success hidden">
+                <div class="success-animation"><image src="/pic/cat.png" style="width: 150px; height: 150px;"></image></div>
+                <p>Galing naman ng Babu ko!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 4: Timeline -->
+    <section id="page4" class="page">
+        <div class="glass-card timeline-card">
+            <h2>
+                <span class="title-icon"></span>
+                ⋆˚࿔ Our Milestone Timeline ⋆˚࿔
+            </h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content left">
+                        <div><img src="/pic/educ.jpg"></div>
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-title">First chat ko tas kilig na kilig ka wawi</div>
+                        <div class="timeline-desc">Where it all began...</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content right">
+                        <div><img src="/pic/start.jpg"></div>
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-title">Officially Us</div>
+                        <div class="timeline-desc">The best decision ever wowtch</div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot active"></div>
+                    <div class="timeline-content left">
+                        <div><img src="/pic/now.jpg"></div>
+                        <div class="timeline-year">Today</div>
+                        <div class="timeline-title">Still you, syempre naman</div>
+                        <div class="timeline-desc">And forever and ever...</div>
+                    </div>
+                </div>
+            </div>
+            <button class="big-btn" onclick="nextPage(5)">
+                <span>Into the Future</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Page 5: Future Dreams -->
+    <section id="page5" class="page">
+        <div class="glass-card dreams-card">
+            <h2>
+                <span class="title-icon"></span>
+                Soon To Be Ours
+            </h2>
+            <p class="subtitle">Our small dreams together...</p>
+            <div class="roadmap-grid">
+                <div class="roadmap-item" style="--delay: 0s;">
+                    <div><img src="/pic/home.png"></div>
+                    <div class="roadmap-title">Our Own Home</div>
+                    <div class="roadmap-desc">A simple home filled with love and built by hardwork</div>
+                </div>
+                <div class="roadmap-item" style="--delay: 0.2s;">
+                    <div><img src="/pic/haha.jpg"></div>
+                    <div class="roadmap-title">Travel Around The World</div>
+                    <div class="roadmap-desc">Different ref magnet mahal huhu</div>
+                </div>
+                <div class="roadmap-item" style="--delay: 0.4s;">
+                    <div><img src="/pic/cats.png"></div>
+                    <div class="roadmap-title">Our Baby! HAHAHAH</div>
+                    <div class="roadmap-desc">Saka na sya kapag malaki na sahod</div>
+                </div>
+                <div class="roadmap-item" style="--delay: 0.6s;">
+                    <div><img src="/pic/u.jpg"></div>
+                    <div class="roadmap-title">US FOREVER TOGETHER</div>
+                    <div class="roadmap-desc">You and Me, Always. </div>
+                </div>
+            </div>
+            <button class="big-btn" onclick="nextPage(6)">
+                <span>A Little Secret</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Page 6: Love Letter -->
+    <section id="page6" class="page">
+        <div class="glass-card letter-card">
+            <h2>
+                <span class="title-icon"></span>
+                ୨ৎ A Letter Only For Babu
+            </h2>
+            <div class="envelope" onclick="openLetter(this)">
+                <div class="envelope-flap"></div>
+                <div class="envelope-body">
+                    <div class="letter-paper">
+                        <div class="letter-content">
+                            <p>Hi Babu,</p>
+                            <p>Wow isipin mo yon, umabot tayo ng one year, I'm very happy na nandito ka pa rin and we are able to to surpass every challenges and misunderstanding we had before.</p>
+                            <p>I'm always proud with you Mahal, always remember na nandito lang ako palagi for you. I can't wait to live and persevere in life with you. Thank you for always making me feel loved. Thank you for always choosing me and our dreams together, sana hindi ka magbago kasi baka mabira ko sikmura mo.</p>
+                            <p>Cheers to more dates, dreams, adventure, and years of love to us, Babu. I love you endlessly...💚</p>
+                            <p class="signature">Forever yours,<br>Babu</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="envelope-seal">☘️</div>
+            </div>
+            <button class="big-btn hidden" id="letterNext" onclick="nextPage(7)">
+                <span>Final Surprise</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <section id="page6-5" class="page">
+    <div class="glass-card game-card catcher-card">
+        <h2>
+            <span class="title-icon"><img src="/pic/cat2.gif" width="100px"></span>
+            Let's Go Babu!
+        </h2>
+        <p class="game-subtitle">Catch 10 Cat to unlock the final surprise!</p>
+        
+        <div class="catcher-game-container">
+            <div id="catcher-score">Caught Cats: 0/10</div>
+            <div id="catcher-area" class="catcher-canvas">
+                <div id="player-basket">🧺</div>
+            </div>
+        </div>
+
+        <div id="catcherSuccess" class="game-success hidden">
+            <div><img src="/pic/cat1.gif"></div>
+            <p>Galing galing asawa ko...</p>
+        </div>
+    </div>
+</section>
+
+    <!-- Page 7: Celebration Details - NEW DESIGN -->
+    <section id="page7" class="page">
+        <div class="celebration-wrapper">
+            <div class="celebration-header">
+                <div class="floating-icon"><img src="/pic/icons.png" width="100px"></div>
+                <h2 class="celebration-title">Let's Celebrate Together</h2>
+                <p class="celebration-subtitle">Mark your calendar for our special date</p>
+            </div>
+            
+            <div class="celebration-grid">
+                <div class="celebration-box" style="--delay: 0s;">
+                    <img src="/pic/place.png" width="200px" padding-bottom="100px">
+                    <h3 class="box-title">Where</h3>
+                    <p class="box-description">Hindi ko alam, sa roof sabi mo HAHAHAH. Let's half the bill!</p>
+                    <div class="box-decoration"></div>
+                </div>
+                
+                <div class="celebration-box" style="--delay: 0.2s;">
+                    <img src="/pic/clock.png" width="200px" padding-bottom="100px">
+                    <h3 class="box-title">When</h3>
+                    <p class="box-description">IDK yet, san ba kasi yon?</p>
+                    <div class="box-decoration"></div>
+                </div>
+                
+                <div class="celebration-box" style="--delay: 0.4s;">
+                    <img src="/pic/fit.png" width="200px" padding-bottom="100px">
+                    <h3 class="box-title">Outfit</h3>
+                    <p class="box-description">Cool touch of black? Formal nalang!</p>
+                    <div class="box-decoration"></div>
+                </div>
+            </div>
+            
+            <button class="modern-btn" onclick="nextPage(8)">
+                <span>One Last Thing</span>
+                <div class="btn-shine"></div>
+            </button>
+        </div>
+    </section>
+
+    <!-- Page 8: Valentine Proposal - NEW DESIGN -->
+    <section id="page8" class="page final-page-new">
+        <div class="proposal-wrapper">
+            <div class="hearts-background">
+                <div class="heart-float" style="--delay: 0s; --x: 10%; --duration: 8s;">💚</div>
+                <div class="heart-float" style="--delay: 2s; --x: 30%; --duration: 9s;">💚</div>
+                <div class="heart-float" style="--delay: 1.5s; --x: 50%; --duration: 10s;">💚</div>
+            </div>
+            
+            <div class="proposal-content">
+                <img src="/pic/catpro.png" width="300px">
+                
+                <h1 class="proposal-question-new">Will you be my Valentine?</h1>
+                
+                <div class="btn-group-new">
+                    <button id="yesBtn" class="answer-btn yes-btn-new" onclick="celebrate()">
+                        <span class="btn-text">YES! 💚</span>
+                        <div class="btn-ripple"></div>
+                    </button>
+                    <button id="noBtn" class="answer-btn no-btn-new" onmouseover="moveNo()">
+                        <span class="btn-text">No no no</span>
+                    </button>
+                </div>
+                
+                <div id="success" class="celebration-success-new hidden">
+                    <div class="confetti-container"></div>
+                    <div class="success-card">
+                        <img src="/pic/end.png" width="250px">
+                        <h3 class="success-heading">Happy Anniversary & Valentine's Day Babu!</h3>
+                        <p class="success-message">Cheers To More Years Together WouUOOou</p>
+                        <div class="success-divider"></div>
+                        <p class="success-note">I love you more than words!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Garden Footer -->
+    <div class="garden-footer" id="garden"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
