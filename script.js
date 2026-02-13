@@ -312,6 +312,7 @@ function openLetter(envelope) {
     
     // Show next button after letter opens
     setTimeout(() => {
+        document.getElementById('letterNext').setAttribute('onclick', 'nextPage("6-5")');
         document.getElementById('letterNext').classList.remove('hidden');
     }, 1000);
 }
@@ -570,16 +571,6 @@ function createSpecialEffect() {
     setTimeout(() => matcha.remove(), 2000);
 }
 
-function openLetter(envelope) {
-    if (envelope.classList.contains('open')) return;
-    envelope.classList.add('open');
-    setTimeout(() => {
-        // Change from 7 to 6.5
-        document.getElementById('letterNext').setAttribute('onclick', 'nextPage("6-5")');
-        document.getElementById('letterNext').classList.remove('hidden');
-    }, 1000);
-}
-
 // ===== MATCHA CATCHER GAME LOGIC =====
 let catcherScore = 0;
 let catcherActive = false;
@@ -672,7 +663,8 @@ function createFallingItem() {
             itemRect.top <= basketRect.bottom
         ) {
             catcherScore++;
-            document.getElementById('catcher-score').textContent = `Caught Cats: ${catcherScore}/10`;            item.remove();
+            document.getElementById('catcher-score').textContent = `Caught Cats: ${catcherScore}/10`;            
+            item.remove();
             clearInterval(fall);
             
             if (catcherScore >= 10) {
@@ -713,5 +705,4 @@ nextPage = function(pageNum) {
         clearInterval(spawnInterval);
         originalNextPage(pageNum);
     }
-
 };
