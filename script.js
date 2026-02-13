@@ -628,11 +628,11 @@ function createFallingItem() {
     
     let fruitImage;
     if (rand > 0.67) {
-        fruitImage = '/pic/cats1.gif';
+        fruitImage = 'pic/cats1.gif';
     } else if (rand > 0.33) {
-        fruitImage = '/pic/cats2.gif';
+        fruitImage = 'pic/cats2.gif';
     } else {
-        fruitImage = '/pic/cats3.gif';
+        fruitImage = 'pic/cats3.gif';
     }
     
     const img = document.createElement('img');
@@ -713,4 +713,5 @@ nextPage = function(pageNum) {
         clearInterval(spawnInterval);
         originalNextPage(pageNum);
     }
+
 };
